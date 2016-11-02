@@ -1,11 +1,11 @@
 var express = require('express');
-
+require('dotenv').config();
 var app = express();
 
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb')
 var mongojs = require('mongojs');
-var db = mongojs('contactList', ['contactList']); //DB, Collections
+var db = mongojs(process.env.MONGO_URL, ['contactList']); //DB, Collections
 
 app.use(express.static(__dirname + "/public")); //where to find static files.
 
